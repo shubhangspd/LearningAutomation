@@ -21,10 +21,7 @@ public static void main(String[] args){
 			try 
 			{
 				driver.findElement(By.partialLinkText("Vostro 3520")).click();
-			
-				driver.findElement(By.xpath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]")).click();
-			
-				driver.findElement(By.xpath("/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/button[1]")).click();
+				configureLaptop(driver);
 			}
 			catch(NoSuchElementException e)
 			{
@@ -32,13 +29,17 @@ public static void main(String[] args){
 				searchBox.sendKeys("Vostro 3520");
 				driver.findElement(By.xpath("/html[1]/body[1]/header[1]/div[1]/div[1]/div[2]/div[1]/button[2]")).click();
 				driver.findElement(By.partialLinkText("Vostro 3520")).click();
-				driver.findElement(By.xpath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]")).click();
-				driver.findElement(By.xpath("/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/button[1]")).click();
+				configureLaptop(driver);
 			}
 			finally 
 			{
 				System.out.println("Done");
 			}
     }
+
+private static void configureLaptop(WebDriver d) {
+	d.findElement(By.linkText("13th Gen Intel")).click();
+	d.findElement(By.xpath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]")).click();
+	d.findElement(By.xpath("/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/button[1]")).click();
 }
- 
+}
